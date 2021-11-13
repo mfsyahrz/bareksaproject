@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  pg:
+    image: postgres:13.2-alpine
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=p@5sW0rd
+      - POSTGRES_DB=bareksapr
+    ports:
+      - 5432:5432
+    networks:
+      - bareksapr
+
+volumes:
+  storage:
+
+networks:
+  bareksapr:
