@@ -23,4 +23,4 @@ COPY --from=builder /app/migration/ migration/
 
 EXPOSE 8080 8080
 
-CMD ["./muv"]
+CMD ["./bareksapr"]

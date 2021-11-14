@@ -27,8 +27,6 @@ services:
       POSTGRES_MAX_OPEN_CONNS: 50
       POSTGRES_MAX_CONN_LIFETIME: 10
       POSTGRES_MAX_IDLE_LIFETIME: 5
-      OMDB_HOST: https://www.omdbapi.com
-      OMDB_API_KEY: 938a67e
       REDIS_HOST: redis
       REDIS_TTL: 5
     ports:
