@@ -1,6 +1,9 @@
 package config
 
 import (
+	"encoding/json"
+	"fmt"
+
 	"github.com/joeshaw/envdecode"
 	"github.com/joho/godotenv"
 )
@@ -8,6 +11,7 @@ import (
 type Config struct {
 	Service  Service
 	Postgres Postgres
+	Redis    Redis
 }
 
 type Service struct {
@@ -30,6 +34,18 @@ type Postgres struct {
 	MaxIdleLifetime int    `env:"POSTGRES_MAX_IDLE,default=5"`
 }
 
+type Redis struct {
+	DefaultTTL int    `env:"REDIS_TTL"`
+	Host       string `env:"REDIS_HOST"`
+	DB         int    `env:"REDIS_DB"`
+	Password   string `env:"REDIS_PASSWORD"`
+}
+
+func (c *Config) String() string {
+	js, _ := json.MarshalIndent(c, "", " ")
+	return string(js)
+}
+
 func New(envFile string) (*Config, error) {
 
 	_ = godotenv.Load(envFile)
@@ -39,5 +55,6 @@ func New(envFile string) (*Config, error) {
 		return nil, err
 	}
 
+	fmt.Println(config.String())
 	return &config, nil
 }

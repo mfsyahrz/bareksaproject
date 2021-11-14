@@ -12,6 +12,39 @@ services:
     networks:
       - bareksapr
 
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SERVICE_NAME: bareksapr
+      SERVICE_PORT_REST: 8080
+      POSTGRES_HOST: pg
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: p@5sW0rd
+      POSTGRES_NAME: bareksapr
+      POSTGRES_MAX_OPEN_CONNS: 50
+      POSTGRES_MAX_CONN_LIFETIME: 10
+      POSTGRES_MAX_IDLE_LIFETIME: 5
+      OMDB_HOST: https://www.omdbapi.com
+      OMDB_API_KEY: 938a67e
+      REDIS_HOST: redis
+      REDIS_TTL: 5
+    ports:
+      - 8080:8080
+    networks:
+      - bareksapr
+    depends_on:
+      - pg
+  
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    networks:
+      - bareksapr
+
 volumes:
   storage:
 
