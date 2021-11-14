@@ -1,6 +1,6 @@
 # bareksa project
 
-microservice prototype that can perform simple CRUD for news and tags built on top of Go, PostgreSQL and Redis.
+simple CRUD APIs for news and tags built on top of Go, PostgreSQL and Redis.
 
 ## Features
 
