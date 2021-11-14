@@ -17,6 +17,7 @@ simple CRUD APIs for news and tags built on top of Go, PostgreSQL and Redis.
 
 ## How To Run
   - Please visit [How To Run](https://github.com/mfsyahrz/bareksaproject/blob/master/docs/how_to_run.md) which located in docs folder.
+  - There also provided an json file Insomnia (Rest API Client tools similar to postman)
 
 ## Authors
 
